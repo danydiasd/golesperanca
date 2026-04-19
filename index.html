@@ -19,6 +19,8 @@
         font-family: "Segoe UI", Arial, sans-serif;
         background: var(--cinza-fundo);
         color: #1f1f1f;
+        margin: 0;
+        overflow-x: hidden;
       }
 
       header {
@@ -31,12 +33,14 @@
       .hero h1 {
         margin: 0;
         font-size: clamp(2rem, 4vw, 3.2rem);
+        overflow-wrap: break-word;
       }
 
       .hero p {
         margin: 1rem auto 0;
         max-width: 740px;
         line-height: 1.6;
+        overflow-wrap: break-word;
       }
 
       .cta-btn {
@@ -70,6 +74,7 @@
       h2 {
         margin: 0 0 0.8rem;
         color: var(--verde-musgo);
+        overflow-wrap: break-word;
       }
 
       .info-list {
@@ -86,6 +91,7 @@
         position: relative;
         overflow: hidden;
         border-radius: 12px;
+        height: 300px;
       }
 
       .carousel-track {
@@ -102,9 +108,10 @@
 
       .slide img {
         width: 100%;
-        height: min(65vw, 540px);
-        object-fit: cover;
+        height: clamp(300px, 65vw, 540px);
+        object-fit: contain;
         display: block;
+        background: #000;
       }
 
       .carousel-controls {
@@ -182,6 +189,13 @@
         justify-content: center;
         gap: 0.75rem;
       }
+      .banner-img {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        display: block;
+        border-radius: 12px;
+      }
     </style>
   </head>
   <body>
@@ -194,8 +208,10 @@
     </header>
 
     <main>
+      <section>
+        <img class="banner-img" src="public/img3.jpeg" alt="Foto 02" loading="lazy"/>
+      </section>
       <section class="info-list">
-         <img class="hero-image" src="public/img3.jpeg" alt="Foto 02" loading="lazy"/>
         <article>
           <h2>1. Quem somos</h2>
           <p>
@@ -251,7 +267,7 @@
     <script>
       const imagePaths = Array.from({ length: 15 }, (_, i) => {
         const n = String(i + 1).padStart(2, "0");
-        return `public/foto-${n}.jpg`;
+        return `./public/img${i + 1}.jpeg`;
       });
 
       const track = document.getElementById("track");
