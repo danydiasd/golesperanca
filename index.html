@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GOL de Esperança | Projeto Social</title>
+    <style>
+      :root {
+        --verde-musgo: #3f5f3a;
+        --verde-musgo-escuro: #2e472a;
+        --laranja: #f28b2a;
+        --branco: #ffffff;
+        --cinza-fundo: #f4f6f2;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: var(--cinza-fundo);
+        color: #1f1f1f;
+      }
+
+      header {
+        background: linear-gradient(135deg, var(--verde-musgo), var(--verde-musgo-escuro));
+        color: var(--branco);
+        padding: 3rem 1.25rem;
+        text-align: center;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+      }
+
+      .hero p {
+        margin: 1rem auto 0;
+        max-width: 740px;
+        line-height: 1.6;
+      }
+
+      .cta-btn {
+        display: inline-block;
+        margin-top: 1.5rem;
+        background: var(--laranja);
+        color: var(--branco);
+        text-decoration: none;
+        font-weight: 700;
+        padding: 0.9rem 1.5rem;
+        border-radius: 999px;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+
+      .cta-btn:hover { transform: translateY(-2px); opacity: 0.95; }
+
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2rem 1rem 4rem;
+      }
+
+      section {
+        background: var(--branco);
+        padding: 1.4rem;
+        margin-bottom: 1rem;
+        border-radius: 14px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+      }
+
+      h2 {
+        margin: 0 0 0.8rem;
+        color: var(--verde-musgo);
+      }
+
+      .info-list {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .agenda {
+        background: #f8fbf7;
+        border-left: 5px solid var(--laranja);
+      }
+
+      .carousel-wrap {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+      }
+
+      .carousel-track {
+        display: flex;
+        transition: transform 0.35s ease;
+        touch-action: pan-y;
+      }
+
+      .slide {
+        min-width: 100%;
+        margin: 0;
+        cursor: zoom-in;
+      }
+
+      .slide img {
+        width: 100%;
+        height: min(65vw, 540px);
+        object-fit: cover;
+        display: block;
+      }
+
+      .carousel-controls {
+        display: flex;
+        justify-content: center;
+        gap: 0.65rem;
+        margin-top: 0.75rem;
+      }
+
+      .carousel-controls button,
+      .lightbox-actions button,
+      .close {
+        border: none;
+        background: var(--verde-musgo);
+        color: var(--branco);
+        padding: 0.6rem 0.85rem;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .dots {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin-top: 0.75rem;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: none;
+        background: #c7cec5;
+        cursor: pointer;
+      }
+      .dot.active { background: var(--laranja); }
+
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.85);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        z-index: 1000;
+      }
+
+      .lightbox.open { display: flex; }
+
+      .lightbox-content {
+        position: relative;
+        width: min(100%, 920px);
+      }
+
+      .lightbox img {
+        width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+        display: block;
+      }
+
+      .close {
+        position: absolute;
+        top: 0.25rem;
+        right: 0.25rem;
+        background: var(--laranja);
+        font-size: 1.15rem;
+      }
+
+      .lightbox-actions {
+        margin-top: 0.6rem;
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <h1>GOL de Esperança</h1>
+      <p>
+        Projeto social apoiado pela ADRA que promove inclusão, socialização e desenvolvimento para crianças e adolescentes por meio do esporte.
+      </p>
+      <a class="cta-btn" href="https://forms.gle/1yub7fgyLJTTia4r6" target="_blank" rel="noopener noreferrer">Participe</a>
+    </header>
+
+    <main>
+      <section class="info-list">
+        <article>
+          <h2>1. Quem somos</h2>
+          <p>
+            Somos um projeto social apoiado pela ADRA - Projeto social que ocorre na cidade de Fortaleza - Bairro Montese e beneficia crianças e adolescentes da comunidade.
+          </p>
+        </article>
+
+        <article>
+          <h2>2. Quem pode participar?</h2>
+          <p>
+            Crianças e adolescentes de 7 a 16 anos, que se encontram em vulnerabilidade social, com baixa socialização, inclusão e escolaridade.
+          </p>
+        </article>
+
+        <article>
+          <h2>3. Descrição</h2>
+          <p>
+            O projeto se realiza no espaço Poliesportivo do Montese semanalmente, com o objetivo de tornar as atividades agradáveis, tendo interação em equipe, demonstração de capacidade e desenvolvimento da autoestima. Temos dentro desse projeto aulas de futebol e no futuro pretendemos incluir demais atividades voltadas para a idade das crianças e adolescentes.
+          </p>
+        </article>
+      </section>
+
+      <section class="agenda">
+        <h2>🚀 GOL de Esperança</h2>
+        <p><strong>📅 Terças</strong><br><strong>⏰ Às 18:00 horas</strong><br><strong>📍 Local:</strong> Polo Esportivo e Cultural do VLT Aeroporto.</p>
+        <a class="cta-btn" href="https://forms.gle/1yub7fgyLJTTia4r6" target="_blank" rel="noopener noreferrer">Participe</a>
+      </section>
+
+      <section>
+        <h2>Galeria de fotos</h2>
+        <div class="carousel-wrap" id="carousel">
+          <div class="carousel-track" id="track"></div>
+        </div>
+        <div class="carousel-controls">
+          <button type="button" id="prevBtn">Anterior</button>
+          <button type="button" id="nextBtn">Próxima</button>
+        </div>
+        <div class="dots" id="dots"></div>
+      </section>
+    </main>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="lightbox-content">
+        <button class="close" id="closeLightbox" aria-label="Fechar">×</button>
+        <img id="lightboxImg" alt="Foto ampliada do projeto" />
+        <div class="lightbox-actions">
+          <button type="button" id="lightboxPrev">Anterior</button>
+          <button type="button" id="lightboxNext">Próxima</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const imagePaths = Array.from({ length: 15 }, (_, i) => {
+        const n = String(i + 1).padStart(2, "0");
+        return `public/foto-${n}.jpg`;
+      });
+
+      const track = document.getElementById("track");
+      const dots = document.getElementById("dots");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightboxImg");
+      const closeLightbox = document.getElementById("closeLightbox");
+      const lightboxPrev = document.getElementById("lightboxPrev");
+      const lightboxNext = document.getElementById("lightboxNext");
+
+      let current = 0;
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      function renderSlides() {
+        imagePaths.forEach((src, index) => {
+          const figure = document.createElement("figure");
+          figure.className = "slide";
+
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = `Foto ${index + 1} do projeto GOL de Esperança`;
+          img.loading = index < 2 ? "eager" : "lazy";
+          img.addEventListener("click", () => openLightbox(index));
+
+          figure.appendChild(img);
+          track.appendChild(figure);
+
+          const dot = document.createElement("button");
+          dot.className = "dot";
+          dot.setAttribute("aria-label", `Ir para foto ${index + 1}`);
+          dot.addEventListener("click", () => goTo(index));
+          dots.appendChild(dot);
+        });
+      }
+
+      function update() {
+        track.style.transform = `translateX(-${current * 100}%)`;
+        [...dots.children].forEach((dot, i) => dot.classList.toggle("active", i === current));
+      }
+
+      function goTo(index) {
+        current = (index + imagePaths.length) % imagePaths.length;
+        update();
+      }
+
+      function next() { goTo(current + 1); }
+      function prev() { goTo(current - 1); }
+
+      function openLightbox(index) {
+        current = index;
+        lightboxImg.src = imagePaths[current];
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+        update();
+      }
+
+      function closeLb() {
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+      }
+
+      function syncLightbox() {
+        if (lightbox.classList.contains("open")) {
+          lightboxImg.src = imagePaths[current];
+        }
+      }
+
+      prevBtn.addEventListener("click", () => { prev(); syncLightbox(); });
+      nextBtn.addEventListener("click", () => { next(); syncLightbox(); });
+      lightboxPrev.addEventListener("click", () => { prev(); syncLightbox(); });
+      lightboxNext.addEventListener("click", () => { next(); syncLightbox(); });
+      closeLightbox.addEventListener("click", closeLb);
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLb();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") { next(); syncLightbox(); }
+        if (e.key === "ArrowLeft") { prev(); syncLightbox(); }
+        if (e.key === "Escape") closeLb();
+      });
+
+      track.addEventListener("touchstart", (e) => { touchStartX = e.changedTouches[0].clientX; });
+      track.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        const distance = touchStartX - touchEndX;
+        if (Math.abs(distance) > 45) {
+          if (distance > 0) next();
+          else prev();
+          syncLightbox();
+        }
+      });
+
+      renderSlides();
+      update();
+    </script>
+  </body>
+</html>
